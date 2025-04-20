@@ -4,7 +4,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY ../ddx_backend_appp .
 
 RUN ls -lah /app/dd_classification_v8/checkpoint-32052
 

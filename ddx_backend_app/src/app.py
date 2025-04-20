@@ -16,7 +16,7 @@ questions_collection = db["questions"]
 model = ElectraForSequenceClassification.from_pretrained("./dd_classification_v8/checkpoint-32052")
 tokenizer = AutoTokenizer.from_pretrained("google/electra-small-discriminator")
 
-with open('./labels.json', 'r') as f:
+with open('../labels.json', 'r') as f:
     all_labels = json.load(f)
 
 from typing import Union, Dict, List
