@@ -1,9 +1,8 @@
 import json
-import os
 import torch
 import pandas as pd
 from transformers import AutoTokenizer, Trainer
-from dd_classificatin_attention_v2 import CustomElectra, MedicalDataset, compute_ddx_metrics, load_evidences_codes
+from differential_diagnosis.v2.dd_classificatin_attention_v2 import CustomElectra, MedicalDataset, compute_ddx_metrics
 
 device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
 

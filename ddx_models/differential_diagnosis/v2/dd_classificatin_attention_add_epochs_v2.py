@@ -1,10 +1,10 @@
 # continue_training.py
 import json
-import os
 import torch
 import pandas as pd
 from transformers import AutoTokenizer, TrainingArguments, Trainer
-from dd_classificatin_attention_v2 import CustomElectra, MedicalDataset, compute_ddx_metrics, load_evidences_codes
+from differential_diagnosis.v2.dd_classificatin_attention_v2 import CustomElectra, MedicalDataset, compute_ddx_metrics
+
 
 # Убедитесь, что классы и функции из исходного кода доступны
 
