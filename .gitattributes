@@ -1,0 +1,9 @@
+ddx_models/differential_diagnosis/v1/dd_classification_v8/** filter=lfs diff=lfs merge=lfs -text
+ddx_models/differential_diagnosis/v2/dd_classification_attention_v2_11-12/** filter=lfs diff=lfs merge=lfs -text
+ddx_models/pathology/pathology_classification/** filter=lfs diff=lfs merge=lfs -text
+ddx_models/dataset.zip filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.pth filter=lfs diff=lfs merge=lfs -text
+*.pt filter=lfs diff=lfs merge=lfs -text
+*.safetensors filter=lfs diff=lfs merge=lfs -text
+*.bin filter=lfs diff=lfs merge=lfs -text
