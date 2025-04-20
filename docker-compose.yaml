@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: survey_mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: survey_db
+
+  backend:
+    build: /Users/nik-dergunov/PycharmProjects/ddxplus_solver/server
+    container_name: survey_backend
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      MONGODB_URL: mongodb://root:example@mongodb:27017/survey_db?authSource=admin
+    depends_on:
+      - mongodb
+
+  frontend:
+    build: ddx_frontend_app
+    container_name: survey_frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongodb_data:
