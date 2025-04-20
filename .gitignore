@@ -26,3 +26,4 @@ yarn-error.log*
 /ddx_models/common/release_test_patients.csv
 /ddx_models/common/release_train_patients.csv
 /ddx_models/common/release_validate_patients.csv
+/ddx_backend_app/model/

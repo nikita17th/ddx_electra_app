@@ -17,7 +17,7 @@ services:
       MONGO_INITDB_DATABASE: survey_db
 
   backend:
-    build: ddx_backend_appp
+    build: ddx_backend_app
     container_name: survey_backend
     restart: always
     ports:

@@ -4,8 +4,8 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY ../ddx_backend_appp .
+COPY . .
 
-RUN ls -lah /app/dd_classification_v8/checkpoint-32052
+RUN ls -lah /app/model
 
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
