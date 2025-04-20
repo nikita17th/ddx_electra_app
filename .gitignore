@@ -23,3 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 /.idea/
 /ddx_frontend_app/node_modules/
+/ddx_models/common/release_test_patients.csv
+/ddx_models/common/release_train_patients.csv
+/ddx_models/common/release_validate_patients.csv

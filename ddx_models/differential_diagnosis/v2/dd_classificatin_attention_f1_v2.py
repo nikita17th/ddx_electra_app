@@ -11,12 +11,10 @@ def main():
     tokenizer = AutoTokenizer.from_pretrained("./dd_classification_attention_v2_tokenizer")
 
     # Загрузка меток
-    with open('labels.json', 'r') as f:
+    with open('../../common/labels.json', 'r') as f:
         all_labels = json.load(f)
     label_to_index = {label: idx for idx, label in enumerate(all_labels)}
-
-    # Загрузка модели (без переопределения конфига!)
-    model_path = "./dd_classification_attention_v2_9-10/checkpoint-64102"
+    model_path = "./dd_classification_attention_v2_11-12/checkpoint-64102"
     model = CustomElectra.from_pretrained(model_path).to(device)
     # model.resize_token_embeddings(len(tokenizer))  # Синхронизация токенизатора и модели
 

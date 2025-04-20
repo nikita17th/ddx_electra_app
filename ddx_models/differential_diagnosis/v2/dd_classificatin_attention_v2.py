@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 import torch
 import torch.nn as nn
+
 from sklearn.metrics import average_precision_score
 from torch.utils.data import Dataset
 from transformers import (
@@ -204,7 +205,6 @@ def main():
 
     label_to_index = {label: idx for idx, label in enumerate(all_labels)}
 
-    # Инициализация модели
     config = ElectraConfig.from_pretrained("google/electra-small-discriminator")
     config.num_labels = len(all_labels)
     config.problem_type = "multi_label_classification"
@@ -212,11 +212,9 @@ def main():
     model.resize_token_embeddings(len(tokenizer), mean_resizing=False)  # Важно после добавления токенов!
     model.to(device)
 
-    # Подготовка данных
     train_dataset = MedicalDataset(train_data, tokenizer, label_to_index)
     val_dataset = MedicalDataset(val_data, tokenizer, label_to_index)
 
-    # Конфигурация обучения
     torch.mps.empty_cache()
     training_args = TrainingArguments(
         output_dir="./dd_classification_attention_v2",
@@ -240,10 +238,7 @@ def main():
         compute_metrics=compute_ddx_metrics,
     )
     tokenizer.save_pretrained("./dd_classification_attention_v2_tokenizer")
-
-    # Запуск обучения
     trainer.train()
-    tokenizer.save_pretrained("./dd_classification_attention_v2_tokenizer_after_train")
 
 
 if __name__ == "__main__":
